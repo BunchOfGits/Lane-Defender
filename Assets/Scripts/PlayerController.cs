@@ -110,6 +110,18 @@ public class PlayerController : MonoBehaviour
         _timer = origTimer;
     }
 
+    void OnRestart()
+    {
+        GM.Restart();
+        shoot.started -= shoot_started;
+        shoot.canceled -= shoot_canceled;
+    }
+
+    private void OnQuit()
+    {
+        GM.Quit();
+    }
+
     private IEnumerator bulletDelay()
     {
         FireBullet();
